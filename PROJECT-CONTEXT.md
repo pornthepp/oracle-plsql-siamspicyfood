@@ -15,8 +15,8 @@ Resume/GitHub showcase repository for an Oracle SQL/PLSQL inventory system for S
 
 - Organized SQL files into `sql/tables`, `sql/constraints`, `sql/data`, `sql/packages`, `sql/views`, `sql/functions`, `sql/types`, `sql/sequences`, `sql/triggers`, and `sql/indexes`.
 - Documented tables, packages, functions, views, and business flow in Thai.
-- Renamed product category spelling from `CATAGORY`/`catagory` to `CATEGORY`/`category` across DDL, constraints, seed data, view, package spec/body, and README.
-- Fixed `FN_GET_EXPIRY_ALERT` to query `inventory` instead of missing `inventory_lot`.
+- Standardized product category naming to `CATEGORY`/`category` across DDL, constraints, seed data, view, package spec/body, and README.
+- Fixed `FN_GET_EXPIRY_ALERT` to query `inventory`.
 - Standardized edit transaction type seed data to `EDIT` to match `PKG_INVENTORY_MASTER.sp_update_info`.
 
 ## Pending Work
@@ -47,7 +47,7 @@ Resume/GitHub showcase repository for an Oracle SQL/PLSQL inventory system for S
 
 ## Known Issues and Fixes
 
-- Fixed misspelled product category column/API.
-- Fixed expiry alert function table reference from `inventory_lot` to `inventory`.
+- Fixed product category column/API naming.
+- Fixed expiry alert function table reference to `inventory`.
 - Fixed transaction type mismatch from `ED` to `EDIT`.
 - Remaining portability risk: exported DDL includes tablespace/storage clauses that may need cleanup for other Oracle environments.

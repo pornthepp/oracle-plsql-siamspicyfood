@@ -4,8 +4,8 @@
 
   CREATE OR REPLACE EDITIONABLE FUNCTION "SMART_FACTORY_DB"."FN_GET_EXPIRY_ALERT" (p_days_threshold NUMBER DEFAULT 30 ) RETURN t_expiry_table PIPELINED IS
         BEGIN
-                FOR r IN (SELECT p.product_name , i.lot_no,l.location_code, TRUNC(i.expiration_date - SYSDATE) AS day_left 
-                                FROM inventory i 
+                FOR r IN (SELECT p.product_name , i.lot_no,l.location_code, TRUNC(i.expiration_date - SYSDATE) AS day_left
+                                FROM inventory i
                                 JOIN products p on i.product_id = p.product_id
                                 JOIN locations l on l.location_id = i.location_id
                                 WHERE TRUNC(i.expiration_date - SYSDATE) <= p_days_threshold) 

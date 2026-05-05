@@ -18,12 +18,12 @@
             -- Update Product UOM                                                
             PROCEDURE product_uom_update(p_product_code products.product_code%TYPE,
                                     p_product_uom products.uom%TYPE);                                    
-            -- Update Product Safety Stock                                                
+            -- Update Product Safety Stock
             PROCEDURE safetyStock_update(p_product_code products.product_code%TYPE,
-                                    p_safetyStock products.safety_stock%TYPE);      
-           -- Update Product Category                                                
+                                    p_safetyStock products.safety_stock%TYPE);
+           -- Update Product Category
             PROCEDURE category_update(p_product_code products.product_code%TYPE,
-                                    p_category products.category%TYPE);      
+                                    p_category products.category%TYPE);
 
 END pkg_product_master;
 

@@ -8,7 +8,7 @@
                                     p_product_name products.product_name%Type,
                                     p_uom products.uom%Type,
                                     p_safety_stock products.safety_stock%Type,
-                                    p_category products.category%Type ) IS 
+                                    p_category products.category%Type ) IS
             BEGIN
                 INSERT INTO products(product_name,
                                 product_code,
@@ -44,16 +44,16 @@
                         UPDATE products SET uom = p_product_uom WHERE product_code = p_product_code;
             END product_uom_update;
             
-            -- Update Product Safety Stock                                                
+            -- Update Product Safety Stock
             PROCEDURE safetyStock_update(p_product_code products.product_code%TYPE,
                                     p_safetyStock products.safety_stock%TYPE) IS
             BEGIN
                     UPDATE products SET safety_stock = p_safetyStock WHERE product_code = p_product_code;
             END safetyStock_update;
             
-           -- Update Product Category                                                
+           -- Update Product Category
             PROCEDURE category_update(p_product_code products.product_code%TYPE,
-                                    p_category products.category%TYPE) IS 
+                                    p_category products.category%TYPE) IS
             BEGIN
                     UPDATE products SET category = p_category WHERE product_code = p_product_code;
             END category_update;
