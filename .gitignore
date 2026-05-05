@@ -1,0 +1,13 @@
+# Local/editor files
+.idea/
+.vscode/
+
+# OS metadata
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+

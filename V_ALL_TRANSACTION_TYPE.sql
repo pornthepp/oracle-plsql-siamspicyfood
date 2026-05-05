@@ -1,0 +1,9 @@
+--------------------------------------------------------
+--  DDL for View V_ALL_TRANSACTION_TYPE
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "SMART_FACTORY_DB"."V_ALL_TRANSACTION_TYPE" ("TRS_TYPE_ID", "TRS_TYPE_CODE", "TRS_TYPE_NAME", "ACTION_TYPE", "DESCRIPTION") AS 
+  SELECT "TRS_TYPE_ID","TRS_TYPE_CODE","TRS_TYPE_NAME","ACTION_TYPE","DESCRIPTION"
+    
+FROM TRANSACTION_TYPE
+;

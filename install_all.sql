@@ -1,0 +1,65 @@
+-- SiamSpicyFood Oracle PL/SQL installation script.
+-- Run from SQL*Plus, SQLcl, or Oracle SQL Developer:
+-- @install_all.sql
+
+SET DEFINE OFF;
+
+PROMPT Creating tables...
+@@PRODUCTS.sql
+@@LOCATIONS.sql
+@@INVENTORY.sql
+@@TRANSACTIONS.sql
+@@TRANSACTION_TYPE.sql
+
+PROMPT Creating sequence and trigger...
+@@TRS_TYPE_SEQ.sql
+@@TRG_TRS_TYPE_ID.sql
+
+PROMPT Adding constraints...
+@@PRODUCTS_CONSTRAINT.sql
+@@LOCATIONS_CONSTRAINT.sql
+@@INVENTORY_CONSTRAINT.sql
+@@TRANSACTIONS_CONSTRAINT.sql
+@@TRANSACTION_TYPE_CONSTRAINT.sql
+
+PROMPT Adding foreign keys...
+@@INVENTORY_REFCONSTRAINT.sql
+@@TRANSACTIONS_REFCONSTRAINT.sql
+
+PROMPT Loading sample data...
+@@PRODUCTS_DATA_TABLE.sql
+@@LOCATIONS_DATA_TABLE.sql
+@@INVENTORY_DATA_TABLE.sql
+@@TRANSACTIONS_DATA_TABLE.sql
+@@TRANSACTION_TYPE_DATA_TABLE.sql
+
+PROMPT Creating object types...
+@@T_EXPIRY_ROW.sql
+@@T_EXPIRY_TABLE.sql
+
+PROMPT Creating package specs...
+@@PKG_TRANSACTION_MASTER.sql
+@@PKG_PRODUCT_MASTER.sql
+@@PKG_LOCATION_MASTER.sql
+@@PKG_INVENTORY_MASTER.sql
+
+PROMPT Creating package bodies...
+@@PKG_TRANSACTION_MASTER_1.sql
+@@PKG_PRODUCT_MASTER_1.sql
+@@PKG_LOCATION_MASTER_1.sql
+@@PKG_INVENTORY_MASTER_1.sql
+
+PROMPT Creating views...
+@@V_ALL_PRODUCT.sql
+@@V_ALL_LOCATION.sql
+@@V_ALL_INVENTORY.sql
+@@V_ALL_TRANSACTIONS.sql
+@@V_ALL_TRANSACTION_TYPE.sql
+@@V_INVENTORY_BALANCE_DETAILS.sql
+@@V_LOW_STOCK.sql
+@@V_EXPIRATION_ALERT.sql
+
+PROMPT Creating functions...
+@@FN_GET_EXPIRY_ALERT.sql
+
+PROMPT Install script finished.
