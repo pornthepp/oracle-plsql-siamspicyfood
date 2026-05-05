@@ -13,24 +13,37 @@
 - Type สำหรับผลลัพธ์ expiry alert: `T_EXPIRY_ROW`, `T_EXPIRY_TABLE`
 - Sequence และ Trigger สำหรับรหัส transaction type: `TRS_TYPE_SEQ`, `TRG_TRS_TYPE_ID`
 
-## วิธีติดตั้ง
+## โครงสร้างไฟล์
 
-รันด้วย SQL*Plus, SQLcl หรือ Oracle SQL Developer ใน schema ที่มีสิทธิ์สร้าง table, view, package, function, sequence และ trigger
-
-```sql
-@install_all.sql
+```text
+.
+├── README.md
+├── PROJECT-CONTEXT.md
+└── sql/
+    ├── tables/       -- table DDL
+    ├── constraints/  -- constraints และ foreign keys
+    ├── data/         -- sample seed data
+    ├── packages/     -- package specs และ package bodies
+    ├── views/        -- report/lookup views
+    ├── functions/    -- standalone functions
+    ├── types/        -- Oracle object/table types
+    ├── sequences/    -- sequence DDL
+    ├── triggers/     -- trigger DDL
+    └── indexes/      -- exported standalone index DDL
 ```
 
-ลำดับใน `install_all.sql` คือ:
+## การนำไปรันจริง
 
-1. สร้าง tables
-2. สร้าง sequence และ trigger
-3. เพิ่ม constraints และ foreign keys
-4. เพิ่ม sample data
-5. สร้าง object types
-6. สร้าง package specs และ package bodies
-7. สร้าง views
-8. สร้าง function
+โปรเจ็คนี้จัดไว้สำหรับแสดง source code และโครงสร้าง Oracle PL/SQL บน GitHub/Resume เป็นหลัก หากต้องการนำไปรันจริง ให้รันไฟล์ SQL ตามลำดับหมวดดังนี้:
+
+1. `sql/tables/`
+2. `sql/sequences/` และ `sql/triggers/`
+3. `sql/constraints/`
+4. `sql/data/`
+5. `sql/types/`
+6. `sql/packages/`
+7. `sql/views/`
+8. `sql/functions/`
 
 > หมายเหตุ: ไฟล์ SQL export ระบุ schema เป็น `SMART_FACTORY_DB` ถ้าติดตั้งใน schema อื่นให้แก้ชื่อ schema ในไฟล์ SQL ก่อน
 
@@ -232,4 +245,3 @@ FROM TABLE(fn_get_expiry_alert(30));
 - `PKG_INVENTORY_MASTER.sp_update_info` ใช้ transaction type `EDIT` แต่ sample data ใน `TRANSACTION_TYPE` มี code `ED` ควรกำหนด code ให้ตรงกันหากนำไปใช้จริง
 - Function `FN_GET_EXPIRY_ALERT.sql` ในไฟล์เดิมอ้าง table `inventory_lot`; ถ้าไม่มี table/view ชื่อนี้ ควรเปลี่ยนเป็น `inventory` หรือสร้าง view alias ให้ตรงก่อน compile
 - Package ส่วนใหญ่ไม่ได้ `COMMIT` เอง ผู้เรียกควรควบคุม transaction และ commit/rollback จาก application หรือ script ภายนอก
-

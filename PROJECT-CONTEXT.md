@@ -25,10 +25,11 @@ Oracle SQL/PLSQL project for the SiamSpicyFood inventory domain. It creates sche
 
 - Read the SQL files and identified main tables, views, packages, function, type, sequence, and trigger.
 - Added `README.md` in Thai explaining project purpose, installation, table structure, packages, procedures, function, views, business flow, and development notes.
-- Added `install_all.sql` to run the SQL files in a practical installation order.
+- Kept the repository focused on readable source organization for GitHub/resume showcase.
 - Added this `PROJECT-CONTEXT.md` for future sessions.
 - Initialized this folder as a standalone Git repository on branch `main`.
 - Created initial commit `98c504a` with all SQL files and documentation.
+- Organized SQL files under `sql/` subfolders by Oracle object type.
 
 ## Pending Work
 
@@ -40,18 +41,14 @@ Oracle SQL/PLSQL project for the SiamSpicyFood inventory domain. It creates sche
 ## Key Files
 
 - `README.md`: Thai documentation for GitHub readers.
-- `install_all.sql`: SQL*Plus/SQLcl installation entry point.
-- `PRODUCTS.sql`, `LOCATIONS.sql`, `INVENTORY.sql`, `TRANSACTIONS.sql`, `TRANSACTION_TYPE.sql`: main table DDL.
-- `*_CONSTRAINT.sql`, `*_REFCONSTRAINT.sql`: constraints and foreign keys.
-- `*_DATA_TABLE.sql`: sample seed data.
-- `PKG_PRODUCT_MASTER.sql`, `PKG_PRODUCT_MASTER_1.sql`: product package spec/body.
-- `PKG_LOCATION_MASTER.sql`, `PKG_LOCATION_MASTER_1.sql`: location package spec/body.
-- `PKG_TRANSACTION_MASTER.sql`, `PKG_TRANSACTION_MASTER_1.sql`: transaction log package spec/body.
-- `PKG_INVENTORY_MASTER.sql`, `PKG_INVENTORY_MASTER_1.sql`: inventory operations package spec/body.
-- `V_*.sql`: reporting and lookup views.
-- `T_EXPIRY_ROW.sql`, `T_EXPIRY_TABLE.sql`: object/table types used by expiry alert function.
-- `FN_GET_EXPIRY_ALERT.sql`: pipelined expiry alert function.
-- `TRS_TYPE_SEQ.sql`, `TRG_TRS_TYPE_ID.sql`: transaction type ID sequence and trigger.
+- `sql/tables/`: main table DDL.
+- `sql/constraints/`: constraints and foreign keys.
+- `sql/data/`: sample seed data.
+- `sql/packages/`: package specs and package bodies.
+- `sql/views/`: reporting and lookup views.
+- `sql/types/`: object/table types used by expiry alert function.
+- `sql/functions/`: pipelined expiry alert function.
+- `sql/sequences/`, `sql/triggers/`, `sql/indexes/`: sequence, trigger, and exported standalone index DDL.
 
 ## Conventions and Patterns
 
