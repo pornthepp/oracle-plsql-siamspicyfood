@@ -238,9 +238,3 @@ FROM TABLE(fn_get_expiry_alert(30));
 6. ตรวจ stock ต่ำด้วย `V_LOW_STOCK`
 7. ตรวจสินค้าใกล้หมดอายุด้วย `V_EXPIRATION_ALERT` หรือ `FN_GET_EXPIRY_ALERT`
 8. ตรวจประวัติการเคลื่อนไหวผ่าน `V_ALL_TRANSACTIONS`
-
-## หมายเหตุสำหรับการพัฒนา
-
-- Transaction type สำหรับการแก้ไขใช้ code `EDIT` ให้ตรงกับ `PKG_INVENTORY_MASTER.sp_update_info`
-- `FN_GET_EXPIRY_ALERT.sql` ใช้ตาราง `inventory` ร่วมกับ `products` และ `locations` เพื่อสร้าง expiry alert
-- Package ส่วนใหญ่ไม่ได้ `COMMIT` เอง ผู้เรียกควรควบคุม transaction และ commit/rollback จาก application หรือ script ภายนอก
