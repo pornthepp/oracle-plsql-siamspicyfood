@@ -27,11 +27,13 @@ Oracle SQL/PLSQL project for the SiamSpicyFood inventory domain. It creates sche
 - Added `README.md` in Thai explaining project purpose, installation, table structure, packages, procedures, function, views, business flow, and development notes.
 - Added `install_all.sql` to run the SQL files in a practical installation order.
 - Added this `PROJECT-CONTEXT.md` for future sessions.
+- Initialized this folder as a standalone Git repository on branch `main`.
+- Created initial commit `98c504a` with all SQL files and documentation.
 
 ## Pending Work
 
 - Confirm GitHub target: use an existing remote URL or create a new GitHub repository.
-- Commit and push once remote/authentication is available.
+- Push to GitHub once remote/authentication is available.
 - Optional: compile-test against Oracle and adjust install order if the target Oracle version reports object dependency errors.
 - Optional: fix SQL naming inconsistencies before production use.
 
@@ -65,4 +67,3 @@ Oracle SQL/PLSQL project for the SiamSpicyFood inventory domain. It creates sche
 - `PKG_INVENTORY_MASTER.sp_update_info` logs transaction type `EDIT`, while seed data uses transaction code `ED`. Align codes before enforcing transaction type references.
 - Column `CATAGORY` appears to be a misspelling of `CATEGORY`, but it is used consistently in table/package files. Rename only with a coordinated migration.
 - Several export files include tablespace/storage clauses. Target databases without `USERS` tablespace or with restricted storage permissions may need simplified DDL.
-
