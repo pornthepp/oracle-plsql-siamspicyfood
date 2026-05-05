@@ -60,7 +60,7 @@
 - `PRODUCT_NAME`: ชื่อสินค้า/วัตถุดิบ
 - `UOM`: หน่วยนับ ค่า default คือ `KG`
 - `SAFETY_STOCK`: จำนวนขั้นต่ำที่ต้องมีใน stock
-- `CATAGORY`: หมวดหมู่สินค้า
+- `CATEGORY`: หมวดหมู่สินค้า
 
 ### LOCATIONS
 
@@ -110,7 +110,7 @@
 - `product_name_update`: แก้ไขชื่อสินค้าจาก `PRODUCT_CODE`
 - `product_uom_update`: แก้ไขหน่วยนับจาก `PRODUCT_CODE`
 - `safetyStock_update`: แก้ไข safety stock จาก `PRODUCT_CODE`
-- `catagory_update`: แก้ไข category จาก `PRODUCT_CODE`
+- `category_update`: แก้ไข category จาก `PRODUCT_CODE`
 
 ตัวอย่าง:
 
@@ -241,7 +241,6 @@ FROM TABLE(fn_get_expiry_alert(30));
 
 ## หมายเหตุสำหรับการพัฒนา
 
-- ชื่อคอลัมน์ `CATAGORY` สะกดตามไฟล์ SQL เดิม หากต้องการแก้เป็น `CATEGORY` ต้องแก้ทุก package/view ที่อ้างถึงด้วย
-- `PKG_INVENTORY_MASTER.sp_update_info` ใช้ transaction type `EDIT` แต่ sample data ใน `TRANSACTION_TYPE` มี code `ED` ควรกำหนด code ให้ตรงกันหากนำไปใช้จริง
-- Function `FN_GET_EXPIRY_ALERT.sql` ในไฟล์เดิมอ้าง table `inventory_lot`; ถ้าไม่มี table/view ชื่อนี้ ควรเปลี่ยนเป็น `inventory` หรือสร้าง view alias ให้ตรงก่อน compile
+- Transaction type สำหรับการแก้ไขใช้ code `EDIT` ให้ตรงกับ `PKG_INVENTORY_MASTER.sp_update_info`
+- `FN_GET_EXPIRY_ALERT.sql` ใช้ตาราง `inventory` ร่วมกับ `products` และ `locations` เพื่อสร้าง expiry alert
 - Package ส่วนใหญ่ไม่ได้ `COMMIT` เอง ผู้เรียกควรควบคุม transaction และ commit/rollback จาก application หรือ script ภายนอก

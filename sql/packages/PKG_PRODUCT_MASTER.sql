@@ -8,7 +8,7 @@
                                     p_product_name products.product_name%Type ,
                                     p_uom products.uom%Type,
                                     p_safety_stock products.safety_stock%Type,
-                                    p_catagory products.catagory%Type);
+                                    p_category products.category%Type);
             -- Update Product Code                       
             PROCEDURE product_code_update(p_product_id products.product_id%TYPE,
                                     p_product_code products.product_code%TYPE);
@@ -21,9 +21,9 @@
             -- Update Product Safety Stock                                                
             PROCEDURE safetyStock_update(p_product_code products.product_code%TYPE,
                                     p_safetyStock products.safety_stock%TYPE);      
-           -- Update Product Catagory                                                
-            PROCEDURE catagory_update(p_product_code products.product_code%TYPE,
-                                    p_catagory products.catagory%TYPE);      
+           -- Update Product Category                                                
+            PROCEDURE category_update(p_product_code products.product_code%TYPE,
+                                    p_category products.category%TYPE);      
 
 END pkg_product_master;
 

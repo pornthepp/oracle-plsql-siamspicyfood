@@ -8,18 +8,18 @@
                                     p_product_name products.product_name%Type,
                                     p_uom products.uom%Type,
                                     p_safety_stock products.safety_stock%Type,
-                                    p_catagory products.catagory%Type ) IS 
+                                    p_category products.category%Type ) IS 
             BEGIN
                 INSERT INTO products(product_name,
                                 product_code,
                                 uom,
                                 safety_stock,
-                                catagory)
+                                category)
                 VALUES(p_product_name,
                         p_product_code,
                         p_uom,
                         p_safety_stock,
-                        p_catagory);
+                        p_category);
             END product_insert;
     
             -- Update Product Code                       
@@ -51,12 +51,12 @@
                     UPDATE products SET safety_stock = p_safetyStock WHERE product_code = p_product_code;
             END safetyStock_update;
             
-           -- Update Product Catagory                                                
-            PROCEDURE catagory_update(p_product_code products.product_code%TYPE,
-                                    p_catagory products.catagory%TYPE) IS 
+           -- Update Product Category                                                
+            PROCEDURE category_update(p_product_code products.product_code%TYPE,
+                                    p_category products.category%TYPE) IS 
             BEGIN
-                    UPDATE products SET catagory = p_catagory WHERE product_code = p_product_code;
-            END catagory_update;
+                    UPDATE products SET category = p_category WHERE product_code = p_product_code;
+            END category_update;
 
 END PKG_PRODUCT_MASTER;
 
